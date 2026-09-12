@@ -4,6 +4,8 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://duk242.github.io',
+	base: '/GetLitWithDuk',
 	integrations: [
 		starlight({
 			title: 'Getting Lit with Duk',
