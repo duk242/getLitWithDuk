@@ -1,0 +1,54 @@
+---
+title: WLED Nodes
+description: Notes about WLED nodes and how to use them/dmx profiles etc
+---
+
+import LightProfile from '../../../components/LightProfile.astro';
+
+<LightProfile 
+  manufacturer="WLED"
+  model="GLEDOPTO + Assorted"
+  type="LED Strip"
+  owner="Dustin"
+  imageSrc=""
+  lightSource="LED Pixels"
+  dimensions="NA"
+  weight="NA"
+  zoomRange="NA"
+  cri="NA"
+  colourTemp="NA"
+  powerUsage="12v Up to 15Amps"
+  powerConnector="12V PSU"
+  dmxPin="sACN"
+  eosProfile="Built in"
+  manualLink="NA"
+/>
+
+## Overview
+This is a general page for all sorts of WLED devices.
+
+WLED is the software that runs on a small ESP32 chip and can be used to drive small LED lights or strips.
+
+**TODO** Add photos of setup
+
+## Power Requirements
+It has 2 wires for power input - you'll need a power supply that's rated for more (Aim for 20-30% more) than the LEDs you're using.
+
+To calculate power requirements, use the [WLED Power Calculator Tool](https://wled-calculator.github.io/)
+Eg. 3meters of WS2811 12V LEDs at 60 LEDs/Meter is 2.44A at full brightness.
+
+**TODO** Notes about Voltage Drop
+
+## Where to buy LED Strips/Controllers
+Aliexpress
+**TODO** Links
+
+## DMX Setup
+[WLED DMX Settings info page](https://kno.wled.ge/interfaces/e1.31-dmx/)
+
+**TODO** DMX Modes/Channel Assignments
+
+
+## Networking and Wifi
+By default, they create a little wifi network, SSID is WLED, password is wled1234
+Connect to that, it should come up with a captive portal page, but if it doesn't go to a webbrowser and navigate to http://4.3.2.1

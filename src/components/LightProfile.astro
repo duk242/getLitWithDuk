@@ -1,0 +1,183 @@
+---
+// src/components/LightProfile.astro
+const {
+  imageSrc,
+  manufacturer,
+  model,
+  type,
+  owner,
+  dimensions,
+  weight,
+  powerUsage,
+  powerConnector,
+  lightSource,
+  cri,
+  colourTemp,
+  zoomRange,
+  panTilt,
+  dmxPin,
+  dmxProfiles,
+  eosProfile,
+  manualLink
+} = Astro.props;
+---
+
+<div class="light-profile-card">
+  <div class="header">
+    <div class="title-area">
+      <h2>{manufacturer} {model}</h2>
+      {type && <span class="badge">{type}</span>}
+    </div>
+    {owner && <div class="owner-badge">Owner: {owner}</div>}
+  </div>
+
+  <div class="content-grid">
+    {imageSrc && (
+      <div class="image-container">
+        <img src={imageSrc} alt={`Image of ${manufacturer} ${model}`} />
+      </div>
+    )}
+
+    <div class="stats-container">
+      
+      {/* Physical & Optical */}
+      <div class="stat-group">
+        <h3>Physical & Optical</h3>
+        <ul>
+          {lightSource && <li><strong>Source:</strong> {lightSource}</li>}
+          {dimensions && <li><strong>Dimensions:</strong> {dimensions}</li>}
+          {weight && <li><strong>Weight:</strong> {weight}</li>}
+          {zoomRange && <li><strong>Zoom Range:</strong> {zoomRange}</li>}
+          {panTilt && <li><strong>Pan/Tilt:</strong> {panTilt}</li>}
+          {cri && <li><strong>CRI:</strong> {cri}</li>}
+          {colourTemp && <li><strong>Colour Temp:</strong> {colourTemp}</li>}
+        </ul>
+      </div>
+
+      {/* Power & Control */}
+      <div class="stat-group">
+        <h3>Power & Control</h3>
+        <ul>
+          {powerUsage && <li><strong>Power Usage:</strong> {powerUsage}</li>}
+          {powerConnector && <li><strong>Connector:</strong> {powerConnector}</li>}
+          {dmxPin && <li><strong>DMX Ports:</strong> {dmxPin}</li>}
+          {dmxProfiles && <li><strong>DMX Profiles:</strong> {dmxProfiles}</li>}
+          {eosProfile && (
+            <li>
+              <strong>EOS Profile:</strong> 
+              {eosProfile.startsWith('http') ? <a href={eosProfile} target="_blank" rel="noopener noreferrer">Download File</a> : eosProfile}
+            </li>
+          )}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  {manualLink && (
+    <div class="footer-links">
+      <a href={manualLink} target="_blank" rel="noopener noreferrer" class="btn">View User Manual</a>
+    </div>
+  )}
+</div>
+
+<style>
+  .light-profile-card {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    background-color: var(--sl-color-bg-nav);
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  .header {
+    background-color: var(--sl-color-black);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+  .header h2 {
+    margin: 0 0 0.5rem 0 !important;
+  }
+  .badge {
+    background: var(--sl-color-accent);
+    color: var(--sl-color-text-invert);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+  .owner-badge {
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-3);
+    border: 1px solid var(--sl-color-gray-4);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+  .content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .image-container {
+    flex: 1 1 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .stats-container {
+    flex: 2 1 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .stat-group {
+    flex: 1 1 200px;
+  }
+  .stat-group h3 {
+    font-size: 1.1rem;
+    margin-top: 0 !important;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem !important;
+  }
+  .stat-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .stat-group li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .footer-links {
+    padding: 1rem 1.5rem;
+    background-color: var(--sl-color-black);
+    border-top: 1px solid var(--sl-color-gray-5);
+    text-align: right;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--sl-color-accent);
+    color: var(--sl-color-text-invert);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+  }
+  .btn:hover {
+    opacity: 0.8;
+  }
+</style>

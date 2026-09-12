@@ -1,0 +1,7 @@
+START_TARGETS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+TARGET_TYPE,TARGET_TYPE_AS_TEXT,TARGET_LIST_NUMBER,TARGET_ID,TARGET_DCID,PART_NUMBER,LABEL,TIME_DATA,UP_DELAY,DOWN_TIME,DOWN_DELAY,FOCUS_TIME,FOCUS_DELAY,COLOR_TIME,COLOR_DELAY,BEAM_TIME,BEAM_DELAY,DURATION,ALERT_TIME,MARK,BLOCK,ASSERT,ALL_FADE,PREHEAT,FOLLOW,LINK,LOOP,CURVE,RATE,EXTERNAL_LINKS,EFFECTS,MODE,CUE_NOTES,SCENE_TEXT,SCENE_END,WIDTH,HEIGHT
+15,Cue_List,,1,,,Cue List Name,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1,Cue,1,0.1,,,LX Test,1,,,,,,,,,,1,,,,,,,,,,,,,,,Test Lights,Pre-Show,,,
+1,Cue,1,0.8,,,Preshow,1,,,,,,,,,,1,,,,,,,,,,,,,,,Pre Show Lighting,,,,
+1,Cue,1,1,,,Top of Scene,4,,,,,,,,,,4,,,,,,,,,,,,,,,,Scene 1 - Scene Name,,,
+END_TARGETS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,77 @@
+---
+title: Nitec Pharos Profile
+description: A solid profile light.
+---
+import LightProfile from '../../../components/LightProfile.astro';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import DmxTable from '../../../components/DmxTable.astro';
+
+
+{/* Define your DMX Data Arrays up here so the HTML stays clean */}
+export const mode1Channel = [
+  { 
+    channel: 1, function: "Intensity", 
+    ranges: [{ value: "0-255", description: "0 - 100%" }] 
+  }
+];
+
+export const mode3Channel = [
+  { 
+    channel: 1, function: "Intensity", 
+    ranges: [{ value: "0-255", description: "0 - 100%" }] 
+  },
+  { 
+    channel: 2, function: "Strobe", 
+    ranges: [{ value: "000-010", description: "No Function" },
+        { value: "010-255", description: "Strobe (Slow to Fast)" }
+    ] 
+  },
+  { 
+    channel: 3, function: "Dimmer Speed", 
+    ranges: [{ value: "000-051", description: "Dimmer Speed set on Display" },
+        { value: "052-101", description: "Dimmer Speed mode Off" },
+        { value: "102-152", description: "Dimmer Speed mode 1 - Fast" },
+        { value: "153-203", description: "Dimmer Speed mode 1 - Medium" },
+        { value: "204-255", description: "Dimmer Speed mode 1 - Slow" },
+    ] 
+  }
+];
+
+
+<LightProfile 
+  manufacturer="Nitec"
+  model="Pharos"
+  type="Profile"
+  owner="JMT"
+  imageSrc="../../assets/lights/nitecPharos.png"
+  lightSource="1x100W LED"
+  dimensions="529x183x430mm"
+  weight="5.8KG"
+  zoomRange="14º to 30º"
+  cri="95"
+  colourTemp="3000K"
+  powerUsage="105W"
+  powerConnector="IEC In & Out"
+  dmxPin="5 pin DMX"
+  eosProfile="Built in"
+  manualLink="https://www.showtech.com.au/webdata/LEDNIT130/downloads/manual/LEDNIT130%20-%20LED%20Pharos%20Profile%20Manual.pdf"
+/>
+
+## Overview
+The Nitec Pharos is a solid profile light - it has zoom adjustment, 4xFraming Shutters, a gobo slot and a gel frame.
+
+The gobo accepts M Size Gobos (66mm outer/48mm inner)
+
+## Maintenance Notes
+* Deep cleaning the lenses requires a hex key to remove the front of the light so you can slide the two lenses out to clean. It's difficult to get the plastic front back on. Good luck.
+
+# DMX
+<Tabs>
+  <TabItem label="1 Channel Mode">
+    <DmxTable channels={mode1Channel} />
+  </TabItem>
+  
+  <TabItem label="3 Channel Mode">
+    <DmxTable channels={mode3Channel} />
+  </TabItem>
+</Tabs>

@@ -1,0 +1,90 @@
+---
+title: ETC Source Four Test Light
+description: The industry standard ellipsoidal reflector spotlight.
+---
+import LightProfile from '../../../components/LightProfile.astro';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import DmxTable from '../../../components/DmxTable.astro';
+
+{/* Define your DMX Data Arrays up here so the HTML stays clean */}
+export const mode23Channel = [
+  { 
+    channel: 1, function: "Pan", 
+    ranges: [{ value: "0-255", description: "0-540° Pan" }] 
+  },
+  { 
+    channel: 2, function: "Pan (Fine)", 
+    ranges: [{ value: "0-255", description: "16 Bit Pan" }] 
+  },
+  { 
+    channel: 7, function: "Lens Rotate", 
+    ranges: [
+      { value: "0-127", description: "0-60° Lens Rotate" },
+      { value: "128-191", description: "Anticlockwise Fast -> Slow" },
+      { value: "200-255", description: "Clockwise Slow -> Fast" }
+    ] 
+  },
+  { 
+    channel: 9, function: "Strobe", 
+    ranges: [
+      { value: "0-3", description: "Strobe Off" },
+      { value: "4-200", description: "Synchronous Strobe Slow -> Fast" },
+      { value: "201-215", description: "Random Strobe Slow" },
+      { value: "216-234", description: "Random Strobe Medium" },
+      { value: "235-255", description: "Random Strobe Fast" }
+    ] 
+  }
+];
+
+export const mode10Channel = [
+  { 
+    channel: 1, function: "Pan", 
+    ranges: [{ value: "0-255", description: "0-540° Pan" }] 
+  },
+  { 
+    channel: 2, function: "Tilt", 
+    ranges: [{ value: "0-255", description: "0-205° Tilt" }] 
+  },
+  { 
+    channel: 3, function: "Dimmer", 
+    ranges: [{ value: "0-255", description: "Intensity 0-100%" }] 
+  }
+];
+
+
+<LightProfile 
+  manufacturer="ETC"
+  model="Source Four"
+  type="Profile / ERS"
+  owner="Dustin"
+  imageSrc="https://upload.wikimedia.org/wikipedia/commons/1/1a/ETC_Source_Four.jpg"
+  lightSource="Incandescent (HPL 575W or 750W)"
+  dimensions="21.5 x 13.3 x 27 inches"
+  weight="14 lbs (6.4 kg)"
+  zoomRange="Fixed lens (5°, 10°, 19°, 26°, 36°, 50°, 70°, or 90°)"
+  cri="100"
+  colourTemp="3200K"
+  powerUsage="Up to 750W"
+  powerConnector="Stage Pin / 15A (Via Dimmer)"
+  dmxPin="N/A (Dimmer controlled)"
+  eosProfile="Built in"
+  manualLink="https://www.etcconnect.com/Products/Lighting-Fixtures/Source-Four/Documentation.aspx"
+/>
+
+## Overview
+The ETC Source Four is the workhorse of the theatrical lighting world. Introduced in 1992, it revolutionized stage lighting by utilizing the highly efficient HPL lamp...
+
+## Maintenance Notes
+* Always ensure you are using the correct HPL lamp wattage for the specific dimmer rating.
+* Clean the lenses regularly with a non-abrasive cloth to maintain optimal output.
+
+# DMX
+<Tabs>
+  <TabItem label="23 Channel Mode">
+    <DmxTable channels={mode23Channel} />
+  </TabItem>
+  
+  <TabItem label="10 Channel Mode">
+    <DmxTable channels={mode10Channel} />
+  </TabItem>
+</Tabs>
