@@ -5,14 +5,13 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://duk242.github.io',
-	base: '/GetLitWithDuk',
+	base: '/getLitWithDuk',
 	integrations: [
 		starlight({
 			title: 'Getting Lit with Duk',
 			// # TODO - Update Social Icons
-			// # TODO - Set Site URL (When published)
 			
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/duk242' }],
 			sidebar: [
 				{
 					label: 'Lighting Design',
